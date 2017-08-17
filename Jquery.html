@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JQuery</title>
+    <link href="JQuery.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+                $.ajax({
+                    url:"Existing.json",
+                    dataType:"text",
+                    success:function(data){
+                        var json=$.parseJSON(data);
+                        var abc=json.Existing1;
+                        var j=0;
+                        $("#one").html(abc[j].name+" "+abc[j].date+" "+abc[j].assigned);
+                        j++;
+                        $("#two").html(abc[j].name+" "+abc[j].date+" "+abc[j].assigned);
+                        j++;
+                        $("#three").html(abc[j].name+" "+abc[j].date+" "+abc[j].assigned);
+                        j++;
+                        $("#four").html(abc[j].name+" "+abc[j].date+" "+abc[j].assigned);
+                        j++;
+                        $("#five").html(abc[j].name+" "+abc[j].date+" "+abc[j].assigned);
+                        j++;
+                        $("#six").html(abc[j].name+" "+abc[j].date+" "+abc[j].assigned);
+                        j++;
+                        $("#seven").html(abc[j].name+" "+abc[j].date+" "+abc[j].assigned);
+                    }
+                })
+
+            $("#sub").click(function () {
+                var x1=$("#one").html();
+                console.log(x1);
+                var x2=$("#two").html();
+                var x3=$("#three").html();
+                var x4=$("#four").html();
+                var x5=$("#five").html();
+                var x6=$("#six").html();
+                var x7=$("#seven").html();
+                $("#one").html($("#Task").val()+" "+ $("#Date").val()+" " +$("#A").val());
+                $("#two").html(x1);
+                $("#three").html(x2);
+                $("#four").html(x3);
+                $("#five").html(x4);
+                $("#six").html(x5);
+                $("#seven").html(x6);
+                $("#Task").val("");
+                $("#Date").val("");
+                $("#A").val("");
+                x1="";
+                x2="";
+                x3="";
+                x4="";
+                x5="";
+                x6="";
+                x7="";
+                })
+            })
+
+    </script>
+</head>
+<body>
+<div id="Header">
+    <h1>Task Tracker</h1>
+    <h3 style="color: grey">v2.0</h3>
+</div>
+<div id="body1">
+<h3>Create a Task</h3>
+    <form>
+        <br>
+        <b>Task Name</b><br>
+        <input type="text" size="75" id="Task" style="background-color: lightgrey"><br><br><br>
+        <b>Date</b><br>
+        <input type="text" size="75" id="Date" style="background-color: lightgrey"><br><br><br>
+        <b>Assigned To</b><br>
+        <input type="text" size="75" id="A" style="background-color: lightgrey"><br><br><br>
+        <input type="button" id="sub" value="Submit" style="background-color: dimgrey;height: 40px;width: auto">
+    </form>
+    <div id="body2">
+        <h3>Existing Task</h3>
+        <fieldset>
+            <ul>
+                <li id="one"></li>
+                <li id="two"></li>
+                <li id="three"></li>
+                <li id="four"></li>
+                <li id="five"></li>
+                <li id="six"></li>
+                <li id="seven"></li>
+            </ul>
+        </fieldset>
+    </div>
+</div>
+</body>
+</html>
